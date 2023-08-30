@@ -1,0 +1,380 @@
+---
+title: "Discussion Section # 1 : Basics of Python"
+author: "Mitchell Valdes"
+engine: knitr
+format:
+    revealjs:
+        header: "Discussion Section # 1 : Basics of Python"
+        logo : https://www.nicepng.com/png/detail/502-5025232_more-info-university-of-wisconsin-logo.png
+        navigation-mode: vertical
+        theme: simple
+    ipynb: default
+    pdf : default
+---
+
+# Introduction
+
+# Writing good code
+
+-   **Goal:** Enable meaningful data manipulation, not become coding experts.
+-   **Definition:** Good code is easily understandable by humans.
+-   **Python's Strength:** Inherent readability.
+
+## Specifics {.smaller}
+
+-   **Clarity:** Code should be clear and concise.
+-   **Readability:** Easy to follow logic and structure.
+-   **Simplicity:** Avoid unnecessary complexity.
+-   **Consistency:** Maintain a uniform coding style.
+-   **Comments:** Use comments for clarity when needed.
+-   **Modularity:** Divide code into reusable modules.
+-   **Error Handling:** Include error-handling mechanisms.
+-   **Remember:** Our aim is to leverage Python for data tasks effectively.
+
+## Python Zen
+
+```{python}
+#| echo: true  
+import this
+```
+
+## Style Guide {.smaller}
+
+**Python Style Guide: [PEP-8](https://www.python.org/dev/peps/pep-0008)**
+
+-   Developed by Python's core developers.
+-   Aims to enhance code readability.
+-   Encourages consistent coding practices.
+
+. . .
+
+**Our Emphasis:**
+
+-   **PEP-8 Awareness:** Be familiar with the guidelines.
+-   **Prioritize Readability:** Focus on making code easy to read.
+-   **Don't Obsess Over Style:** Don't stress excessively.
+-   **Key Themes:** Emphasize important style principles.
+
+## More on Style {.smaller}
+
+1.  Limit the length of a line of code to 79 characters. Having to scroll right to read a line of code is distracting. Some text editors can display a line down the screen to mark the 'edge.' 
+
+2.  Use blank lines to group related blocks of code.
+
+3.  Put a space before and after assignment `=` and comparisons `==`, `!=`, `<`, `<`.
+
+4.  Put a space after a comma.
+
+## More on Style {.smaller}
+
+**Example:** Bad Style
+```{python}
+#| echo: true
+#| eval : false
+#| code-fold: true
+#| code-summary: "expand for full code"
+# Example of point 3.
+x=1+5
+
+if x<10:print(x)
+    
+# Example of point 4 (and point 3).
+print('The value of x is',x)
+
+x_list = [1,3,6,9]
+
+# Example of point 1.
+"This is a very long string that should be wrapped across multiple lines. In its current form, it is very difficult to read."
+```
+**Example:** Good Style
+```{python}
+#| echo: true
+#| eval: false
+#| code-fold: true
+#| code-summary: "expand for full code"
+
+# Examples of point 3.
+x = 1 + 5
+
+if x < 10:
+    print(x)
+    
+# Examples of point 4 (and point 3).
+print('The value of x is', x)
+
+x_list = [1, 3, 6, 9]
+
+# Example of point 1.
+"""
+This is a very long string that we are 
+going to wrap across multiple lines.
+In its current form, it's not too difficult to read.
+"""
+```
+
+**Note** that both of these code blocks are valid Python code. The second block is just easier to read.
+
+## Comments {.smaller}
+1. Use comments when needed. Do not comment on the trivial. 
+2. Comments should be complete sentences. Capitalize the first letter. Use a period at the end. 
+3. Use a comment on the line before code rather than to the right of the code. 
+4. Use docstrings whenever you write a function. This rule will make more sense once we have introduced functions next week.
+
+**Example:**
+```{python}
+#| echo: true
+#| eval: false
+#| code-fold: true
+#| code-summary: "expand for full code"
+
+# Examples of point 1.
+
+# Add 1 to x.   <-- No! This is obvious.
+x = x + 1
+
+# Examples of point 3.
+# This is a comment on the line before the code.
+x += 1  # This is a comment to the right of the code.
+```
+
+## Naming conventions {.smaller}
+
+Different people, languages, and businesses use different naming conventions. The key here is to be consistent. 
+
+1. I use all lower case letters for variables and functions and I use underscores `_` to make the names more readable.
+2. Use all capital letters to denote a constant value. 
+3. Try to make function and variable names self-documenting. 
+
+## Naming conventions {.smaller}
+
+**Example:** Bad Style
+
+```{python}
+#| echo: true
+#| eval: false
+#| code-fold: true
+#| code-summary: "expand for full code"
+
+x = "Alice"
+y = 46
+z = 23.32 
+
+print(f"{x} income is ${y} while US GDP is ${z} trillion")
+```
+
+**Example:** Good Style
+
+```{python}
+#| echo: true
+#| eval: false
+#| code-fold: true
+#| code-summary: "expand for full code"
+
+name = "Alice"
+income = 46
+
+USGDP = 23.32
+
+print(f"{name} income is ${income} while US GDP is ${USGDP} trillion")
+```
+
+## Practice: Writing good code
+Fix up the code below.
+
+```{python}
+#everyone's hours
+Hrsworked_Bob =37
+Hrsworked_Alice = 42
+hrswored_Clarice=45.6
+
+
+wage = 23.5000   # The wage.
+
+x = Hrsworked_Bob* wage +Hrsworked_Alice*wage+wage*hrswored_Clarice
+
+print(    'The total wage bill is',x)
+```
+
+# String formatting 
+
+We work with text a lot:
+
+- We print words and numbers to the screen and to files.
+- We add text to figures to label axes and call out interesting observations.
+- We analyze text as data. 
+
+## String formatting
+- Next we will learn the basics of string formatting (or string interpolation).
+- String formatting is a way to insert values into a string.
+- String formatting can get very sophisticated, but we need only a few simple things. As usual, you can always Google for 'python string format' for more. 
+
+## Simplest way: Strign concatenation
+- In python, we can concatenate strings using the `+` operator.
+- We can also concatenate strings with other data types, but we need to convert the other data type to a string first.
+
+## Example: String concatenation
+This code will produce an error. Why?
+```{python}
+#| echo: true
+#| error: true
+name = "Pedro"
+age = "23"
+print("His name is " + name + " and he is " + age + " years old.")
+
+income = 100000
+
+print("His name is " + name + " and he makes $" + income + " per year.")
+```
+How can we fix it?
+
+. . .
+```{python}
+#| echo: true
+print("His name is " + name + " and he makes $" + str(income) + " per year.")
+```
+
+The `str()` function converts the `income` variable to a string.
+
+## Ways to format strings
+
+There are three ways in which Python can format strings for us:
+
+- Old way: `%` operator
+```python
+text = "The value of x is %d" % x
+``` 
+- New way: `.format()` method
+```python
+text = "The value of x is {value}".format(value = x)
+```
+- Newest way: `f-string`s
+```python
+text = f"The value of x is {x}"
+```
+Note that in all three cases Python handles the conversion of `x` to a string for us.
+
+## Ways to format strings
+
+```{python}
+#| echo: true
+#| code-overflow: wrap
+# the following all produce the same output
+food = 'apple'
+name = 'Bob'
+
+# old method 
+print('%s had a(n) %s for breakfast' % (name, food)) 
+
+# .format() method
+print('{person} had a(n) {item} for breakfast'.format(person = name, item = food)) 
+
+# "f-string" method 
+print(f'{name} had a(n) {food} for breakfast') 
+```
+
+
+
+
+I prefer the `f-string` method. It is the newest and easiest to read.
+
+```{.python code-line-numbers="12-14"}
+#| echo: true
+# the following all produce the same output
+food = 'apple'
+name = 'Bob'
+
+# old method 
+print('%s had a(n) %s for breakfast' % (name, food)) 
+
+# .format() method
+print('{person} had a(n) {item} for breakfast'.format(
+person = name, item = food)) 
+
+# "f-string" method 
+print(f'{name} had a(n) {food} for breakfast') 
+```
+## Formatting floats {.smaller}
+
+- We display a decimal value as percentage using the `x.yf` format specifier. Where `x` is the total number of digits and `y` is the number of digits after the decimal point.
+
+```{python}
+#| code-overflow: wrap
+#| echo: true
+foo = 1/3
+# This is default print
+print(f'foo = {foo}')
+# This is the default float format.
+print(f'foo = {foo:f}')
+# This is a formatted float with 3 digits after the decimal point.
+print(f'foo = {foo:5.3f}')
+# Now the space reserved for the number is 8
+print(f'foo = {foo:8.3f}'.format(foo))
+# The zero before the 8 prints out the leading zeros. 
+print(f'foo = {foo:08.3f}')
+# We can use commas for easier reading.
+big_float = 5692348925.2
+print(f'An easy to read  big float is = {big_float:16,.2f}')
+```
+
+## Practice: String formatting 
+
+1. What happens if the number is larger than the width we specify? Try printing 
+
+```{python}
+#| echo: true
+# Question 1
+big_float = 123456789123456.7899
+```
+to the screen with the format `5.2f`. What happened?
+
+. . . 
+
+```{python}
+#| echo: true
+print(f"big_float = {big_float:5,.2f}")
+```
+
+
+## Practice: String formatting {.smaller}
+
+2. We often express numbers in percentage terms. Experiment with the `{position:4.2%}` format code (where the 4 and 2 are arbitrary numbers). Print each of the following to the screen:
+    1. `x = 0.03` as a percentage with 1 decimal place
+    2. `y = 0.65297` as a percentage with 2 decimal places
+    3. `z = 0.00056` as a percentage with 3 decimal places
+
+. . .
+
+```{python}
+#| echo: true
+x = 0.03
+print(f"x = {x:4.2%}")
+y = 0.65297
+print(f"y = {y:4.2%}")
+z = 0.00056
+print(f"z = {z:4.2%}")
+```
+
+## Practice: String formatting {.smaller}
+
+3. Suppose that we wanted our x, y, and z to line up on the decimal place. 
+
+03.000% <br>
+65.30% <br>
+00.056%
+
+Try out the `{value:06.2%}` code to add leading zeros.
+
+. . .
+
+```{python}
+#| echo: true
+print(f"x = {x:06.2%}")
+print(f"y = {y:06.2%}")
+print(f"z = {z:06.2%}")
+```
+. . .
+or 
+```{python}
+#| echo: true
+print(f"x = {x:06.2%}\ny = {y:06.2%}\nz = {z:06.2%}")
+```
