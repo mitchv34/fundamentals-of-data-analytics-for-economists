@@ -20,7 +20,6 @@ format:
 
 -   You can get the slides and Python notebooks fo all sections on, Canvas or the [Github repository](https://github.com/mitchv34/fundamentals-of-data-analytics-for-economists)
 
--   Remember to do the [**student survey**](https://forms.gle/d8mz4ye3oAp7MmrGA) by next Monday for some easy grade points!
 
 # About Me {.smaller}
 
