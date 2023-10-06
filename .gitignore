@@ -1,3 +1,6 @@
+# Everything in the grading folder
+grading/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
