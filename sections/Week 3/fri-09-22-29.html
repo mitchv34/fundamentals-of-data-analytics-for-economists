@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.3.450">
 
   <meta name="author" content="Mitchell Valdes">
-  <title>Discussion Section # 3 : Functions</title>
+  <title>Discussion Section # 4 : Data Frames</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -29,71 +29,6 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="fri-09-22-29_files/libs/revealjs/dist/theme/quarto.css">
   <link href="fri-09-22-29_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -390,7 +325,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Discussion Section # 3 : Functions</h1>
+  <h1 class="title">Discussion Section # 4 : Data Frames</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -403,172 +338,35 @@ Mitchell Valdes
 </section>
 <section id="introduction" class="slide level2">
 <h2>Introduction</h2>
-<p><strong>files needed</strong> = None</p>
+<p>files needed = <code>industrial_production.xlsx</code></p>
 <p>This week we are working on</p>
 <ol type="1">
-<li>Keyword and default arguments in functions</li>
-<li>General Python practiced</li>
+<li>Working with DataFrames</li>
+<li>Practice working with messy data</li>
+<li>Looking through documentation</li>
 </ol>
 </section>
-<section id="more-on-functions" class="slide level2">
-<h2>More on functions</h2>
+<section id="checking-documentation" class="slide level2 smaller">
+<h2>Checking Documentation</h2>
 <ul>
-<li><p>Writing functions is an important part of programming. You write the code once, debug it and test it, and then use it whenever you need to.</p></li>
-<li><p>We will also see situations later where we can extend the use of a pandas function by giving it functions of our own to apply to DataFrames. [More on that in a few weeks.]</p></li>
-<li><p>Let’s dig a bit deeper into functions.</p></li>
+<li><p>How to find solutions to your problems when writing code.</p></li>
+<li><p>First place to start is by looking at the documentation for the function or package itself. Most well-developed packages will have some sort of explanation of the function or object, and proper ways to use it.</p></li>
+<li><p>Check the <a href="https://pandas.pydata.org/docs/">pandas documentation here</a>.</p></li>
+<li><p>Try searching for something like “dataframe” or <a href="https://pandas.pydata.org/docs/reference/api/pandas.melt.html?highlight=melt#pandas.melt">“melt”</a>.</p></li>
+<li><p>Python has <a href="https://docs.python.org/3.7/library/">its own documentation</a>.</p></li>
 </ul>
 </section>
-<section id="argument-types" class="slide level2">
-<h2>Argument types</h2>
-<p>A function can take inputs, which are called <em>arguments</em> in python and produce outputs. In class, we covered positional arguments. <em>Positional arguments</em> have to be passed to the function in the correct order.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> divider(numerator, denominator):</span>
-<span id="cb1-2"><a href="#cb1-2"></a>    <span class="co">"""</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="co">    Divides numerator by denominator.  </span></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="co">    """</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a>    <span class="cf">return</span> numerator<span class="op">/</span>denominator </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Here numerator = 5 and denominator = 10</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>divider(<span class="dv">5</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>0.5</code></pre>
-</div>
-</div>
-</section>
-<section id="keyword-arguments" class="slide level2 smaller">
-<h2>Keyword arguments</h2>
-<p>A disadvantage of positional arguments is that you have to remember what order to pass the values to the function. For simple functions, this is not much to ask.</p>
-<p>We can also call a function using keyword arguments. <em>Keyword arguments</em> pass the name of the argument and the argument’s values.</p>
-<p>We can call the function divider using keyword arguments.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>divider(numerator <span class="op">=</span> <span class="dv">5</span>, denominator <span class="op">=</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>0.5</code></pre>
-</div>
-</div>
-<p>is equivalent to</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>divider(denominator <span class="op">=</span> <span class="dv">10</span>, numerator <span class="op">=</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>0.5</code></pre>
-</div>
-</div>
-</section>
-<section id="keyword-arguments-1" class="slide level2">
-<h2>Keyword arguments</h2>
-<p>When using keyword arguments, the ordering of the arguments does not matter.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># print() has a keyword argument 'sep' that sets the separating character.</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="bu">print</span>(<span class="st">'The econ department phone number is:'</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>The econ department phone number is:</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="bu">print</span>(<span class="st">'608'</span>, <span class="st">'263'</span>, <span class="st">'2989'</span>, sep<span class="op">=</span><span class="st">'-'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>608-263-2989</code></pre>
-</div>
-</div>
+<section id="checking-documentation-in-jupyter" class="slide level2 smaller">
+<h2>Checking Documentation in Jupyter</h2>
 <ul>
-<li>In the last line, the print function took 3 positional arguments and one keyword argument. We can set the <code>sep</code> argument to be any character.</li>
-<li>If you wanted each argument printed on one line, you would set it to <code>\n</code>.</li>
+<li><p>You can also check the documentation in Jupyter notebooks by using the <code>?</code> operator.</p></li>
+<li><p>For example, if you wanted to check the documentation for the <code>melt</code> function, you could type <code>?pd.melt</code> in a code cell and run it.</p></li>
 </ul>
-</section>
-<section id="keyword-arguments-2" class="slide level2">
-<h2>Keyword arguments</h2>
-<p>Worth noting is that Python prefers that positional arguments come before any keyword arguments.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="bu">print</span>(divider(numerator <span class="op">=</span> <span class="dv">5</span>, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>positional argument follows keyword argument (&lt;string&gt;, line 1)</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="bu">print</span>(<span class="st">'The econ department phone number is:'</span>) </span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="bu">print</span>(<span class="st">'608'</span>, <span class="st">'263'</span>,sep<span class="op">=</span><span class="st">'-'</span>, <span class="st">'2989'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>positional argument follows keyword argument (&lt;string&gt;, line 2)</code></pre>
-</div>
-</div>
-</section>
-<section id="default-arguments" class="slide level2">
-<h2>Default arguments</h2>
-<p>When writing a function, you may define default values for your arguments.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="kw">def</span> weight_converter(weight, how<span class="op">=</span><span class="st">'kgtolb'</span>):</span>
-<span id="cb16-2"><a href="#cb16-2"></a>    <span class="co">"""</span></span>
-<span id="cb16-3"><a href="#cb16-3"></a><span class="co">    Converts weights to different units. Currently supports pounds to kilograms</span></span>
-<span id="cb16-4"><a href="#cb16-4"></a><span class="co">    and kilograms to pounds.</span></span>
-<span id="cb16-5"><a href="#cb16-5"></a><span class="co">    """</span></span>
-<span id="cb16-6"><a href="#cb16-6"></a>    <span class="cf">if</span> how <span class="op">==</span> <span class="st">'kgtolb'</span>:</span>
-<span id="cb16-7"><a href="#cb16-7"></a>        <span class="cf">return</span> weight<span class="op">*</span><span class="fl">2.205</span></span>
-<span id="cb16-8"><a href="#cb16-8"></a>    <span class="cf">elif</span> how <span class="op">==</span> <span class="st">'lbtokg'</span>:</span>
-<span id="cb16-9"><a href="#cb16-9"></a>        <span class="cf">return</span> weight<span class="op">/</span><span class="fl">2.205</span></span>
-<span id="cb16-10"><a href="#cb16-10"></a>    <span class="cf">else</span>:</span>
-<span id="cb16-11"><a href="#cb16-11"></a>        <span class="bu">print</span>(<span class="st">'I do not know how to convert that.'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># If I do not pass the `how` argument, I get kilos to lbs. </span></span>
-<span id="cb17-2"><a href="#cb17-2"></a>weight_converter(<span class="fl">1.0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>2.205</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>weight_converter(<span class="fl">1.0</span>, how<span class="op">=</span><span class="st">'lbtokg'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>0.4535147392290249</code></pre>
-</div>
-</div>
-</section>
-<section>
-<section id="practice" class="title-slide slide level1 center">
-<h1>Practice</h1>
-
-</section>
-<section id="question-1" class="slide level2">
-<h2>Question 1</h2>
-<p>What is the default value of <code>sep</code> in the <code>print()</code> function? What does print’s <code>end</code> argument do?</p>
-</section>
-<section id="question-2" class="slide level2">
-<h2>Question 2</h2>
-<p>Does the following code work?</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="bu">print</span>(sep<span class="op">=</span><span class="st">'-'</span>, <span class="st">'608'</span>, <span class="st">'263'</span>, <span class="st">'2989'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>What does this tell us about how we can mix positional and keyword arguments?</p>
-</section>
-<section id="question-3" class="slide level2 smaller">
-<h2>Question 3</h2>
-<p>Write a function named <code>employee_summary</code> that takes three arguments: a dictionary of data, a name, and an argument called <code>extended</code>. Make the default value of <code>extended</code> be False. The other two arguments do not need default values.</p>
-<p>If the name is not in the dict, then the function should return a message stating so.</p>
-<p>If the name is in the dict and <code>extended==False</code>, then the function should print the employee’s name and department. Example: ‘Employee Kim is in economics.’</p>
-<p>If the name is in the dict and <code>extended==True</code>, then the function should print the employee’s name, position, and department. Example: ‘Employee Kim is a prof in economics.’</p>
-<p>Notice that the first letter of the person’s name in the output has been capitalized.</p>
-</section>
-<section class="slide level2">
-
-<p>Here is the data dictionary:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>data <span class="op">=</span> {<span class="st">'kim'</span>:[<span class="st">'prof'</span>, <span class="st">'economics'</span>], <span class="st">'greg'</span>:[<span class="st">'TA'</span>, <span class="st">'economics'</span>], </span>
-<span id="cb22-2"><a href="#cb22-2"></a>        <span class="st">'bucky'</span>:[<span class="st">'mascot'</span>, <span class="st">'sports'</span>], <span class="st">'barry'</span>:[<span class="st">'coach'</span>, <span class="st">'the football team'</span>], </span>
-<span id="cb22-3"><a href="#cb22-3"></a>        <span class="st">'abe'</span>:[<span class="st">'president'</span>, <span class="st">'USA'</span>], <span class="st">'hector'</span>:[<span class="st">'prof'</span>, <span class="st">'biochemistry'</span>]}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="co"># Question 3</span></span>
-<span id="cb23-2"><a href="#cb23-2"></a></span>
-<span id="cb23-3"><a href="#cb23-3"></a><span class="kw">def</span> employee_summary(data_dict, name, extended<span class="op">=</span><span class="va">False</span>):</span>
-<span id="cb23-4"><a href="#cb23-4"></a>    <span class="co"># Your code here</span></span>
-<span id="cb23-5"><a href="#cb23-5"></a>    <span class="cf">pass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="question-4" class="slide level2">
-<h2>Question 4</h2>
-<p>Test your function with:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>employee_summary(data, <span class="st">'greg'</span>, extended<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb24-2"><a href="#cb24-2"></a>employee_summary(data, <span class="st">'goldy'</span>)</span>
-<span id="cb24-3"><a href="#cb24-3"></a>employee_summary(data, <span class="st">'barry'</span>, extended<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 <img src="https://www.nicepng.com/png/detail/502-5025232_more-info-university-of-wisconsin-logo.png" class="slide-logo r-stretch"><div class="footer footer-default">
 
 </div>
-</section></section>
+</section>
     </div>
   </div>
 
