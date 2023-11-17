@@ -1,0 +1,24 @@
+                      OLS Regression Results                      
+Dep. Variable:   ,sleep           ,  R-squared:         ,   0.113 
+Model:           ,OLS             ,  Adj. R-squared:    ,   0.109 
+Method:          ,Least Squares   ,  F-statistic:       ,   29.79 
+Date:            ,Fri, 10 Nov 2023,  Prob (F-statistic):,3.91e-18 
+Time:            ,14:07:22        ,  Log-Likelihood:    , -5263.3 
+No. Observations:,   706          ,  AIC:               ,1.053e+04
+Df Residuals:    ,   702          ,  BIC:               ,1.055e+04
+Df Model:        ,     3          ,                     ,         
+Covariance Type: ,nonrobust       ,                     ,         
+           ,   coef   , std err ,    t    ,P>|t| ,  [0.025 ,  0.975] 
+Intercept  , 3440.9308,  239.448,   14.370, 0.000, 2970.811, 3911.050
+totwrk     ,   -0.1489,    0.017,   -8.924, 0.000,   -0.182,   -0.116
+educ       ,  -11.3493,    5.881,   -1.930, 0.054,  -22.896,    0.197
+np.log(age),   79.2414,   56.612,    1.400, 0.162,  -31.908,  190.391
+Omnibus:      ,68.734,  Durbin-Watson:     ,   1.944
+Prob(Omnibus):, 0.000,  Jarque-Bera (JB):  , 184.854
+Skew:         ,-0.497,  Prob(JB):          ,7.24e-41
+Kurtosis:     , 5.301,  Cond. No.          ,3.61e+04
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 3.61e+04. This might indicate that there are
+strong multicollinearity or other numerical problems.
